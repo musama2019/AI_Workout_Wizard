@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generated Workout Plan</title>
+</head>
+<body>
+    <h1>Generated Workout Plan</h1>
+    <pre>
+        {% for line in generated_plan_lines %}
+            {{ line }}<br>
+        {% endfor %}
+    </pre>
+</body>
+</html>

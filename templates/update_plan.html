@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Workout Plan</title>
+</head>
+<body>
+    <h1>Update Workout Plan</h1>
+    <h2>Initial Workout Plan:</h2>
+    <pre>
+        {% for line in initial_plan_lines %}
+            {{ line }}<br>
+        {% endfor %}
+    </pre>
+    <form action="/update" method="post">
+        <input type="hidden" name="initial_plan" value="{{ '\n'.join(initial_plan_lines) }}">
+        <label for="changes">What changes do you need in the initial plan?</label><br>
+        <textarea id="changes" name="changes" rows="4" cols="50" required></textarea><br>
+        <input type="submit" value="Update Plan">
+    </form>
+</body>
+</html>

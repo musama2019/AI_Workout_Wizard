@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirm Workout Plan</title>
+</head>
+<body>
+    <h1>Confirm Workout Plan</h1>
+    <h2>Initial Workout Plan:</h2>
+    <pre>
+        {% for line in initial_plan_lines %}
+            {{ line }}<br>
+        {% endfor %}
+    </pre>
+    <form action="/confirm" method="post">
+        <input type="hidden" name="initial_plan" value="{{ '\n'.join(initial_plan_lines) }}">
+        <label for="is_true">Is the plan true? (True/False):</label><br>
+        <input type="text" id="is_true" name="is_true" required><br>
+        <input type="submit" value="Generate Plan">
+    </form>
+</body>
+</html>

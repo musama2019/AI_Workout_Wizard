@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workout Planner</title>
+</head>
+<body>
+    <h1>Workout Planner</h1>
+    <form action="/generate" method="post">
+        <label for="workout_name">Enter name/title of your workout:</label><br>
+        <input type="text" id="workout_name" name="workout_name" required><br>
+
+        <label for="num_days">Number of days (max 7, min 2):</label><br>
+        <input type="number" id="num_days" name="num_days" min="2" max="7" required><br>
+
+        <label for="volume_per_week">Volume per week:</label><br>
+        <select id="volume_per_week" name="volume_per_week" required>
+            <option value="<10">&lt;10</option>
+            <option value="10-15">10-15</option>
+            <option value="16-20">16-20</option>
+            <option value="20+">20+</option>
+        </select><br>
+
+        <label for="workout_type">Type of workout:</label><br>
+        <select id="workout_type" name="workout_type" required>
+            <option value="Hypertrophy">Hypertrophy</option>
+            <option value="Strength">Strength</option>
+            <option value="Hybrid">Hybrid</option>
+        </select><br>
+
+        <label for="include_warmup">Include warm up:</label><br>
+        <select id="include_warmup" name="include_warmup" required>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select><br>
+
+        <label for="include_cooldown">Include cool down:</label><br>
+        <select id="include_cooldown" name="include_cooldown" required>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select><br>
+
+        <label for="workout_location">Gym or home workout?</label><br>
+        <select id="workout_location" name="workout_location" required>
+            <option value="Gym">Gym</option>
+            <option value="Home">Home</option>
+        </select><br>
+
+        <label for="weak_body_parts">Does your client have any weak body parts?</label><br>
+        <select id="weak_body_parts" name="weak_body_parts" required>
+            <option value="Shoulders">Shoulders</option>
+            <option value="Back">Back</option>
+            <option value="Chest">Chest</option>
+            <option value="Arms">Arms</option>
+            <option value="Quads">Quads</option>
+            <option value="Hamstrings">Hamstrings</option>
+            <option value="Glutes">Glutes</option>
+            <option value="Calves">Calves</option>
+            <option value="None">None</option>
+        </select><br>
+
+        <label for="client_gender">Is your client male or female?</label><br>
+        <select id="client_gender" name="client_gender" required>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+        </select><br>
+
+        <input type="submit" value="Generate Plan">
+    </form>
+</body>
+</html>
