@@ -4,20 +4,98 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Update Workout Plan</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        h1, h2 {
+            text-align: center;
+            color: #343a40;
+        }
+
+        pre {
+            background-color: #f1f3f4;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            max-width: 600px;
+            margin: 20px auto;
+            overflow-x: auto;
+        }
+
+        pre code {
+            display: block;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+
+        form {
+            max-width: 500px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            font-weight: bold;
+            color: #555;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+            box-sizing: border-box;
+            background-color: #fff;
+            color: #495057;
+            resize: vertical;
+        }
+
+        input[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            display: block;
+            width: 100%;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
+<h1>Update Workout Plan</h1>
+</pre>
+<form action="/update" method="post">
+    <input type="hidden" name="initial_plan" value="{{ '\n'.join(initial_plan_lines) }}">
+    <label for="changes">What changes do you need in the initial plan?</label>
+    <textarea id="changes" name="changes" rows="4" cols="50" required></textarea>
+    <input type="submit" value="Update Plan">
+</form>
 <body>
-    <h1>Update Workout Plan</h1>
+
     <h2>Initial Workout Plan:</h2>
     <pre>
-        {% for line in initial_plan_lines %}
-            {{ line }}<br>
-        {% endfor %}
-    </pre>
-    <form action="/update" method="post">
-        <input type="hidden" name="initial_plan" value="{{ '\n'.join(initial_plan_lines) }}">
-        <label for="changes">What changes do you need in the initial plan?</label><br>
-        <textarea id="changes" name="changes" rows="4" cols="50" required></textarea><br>
-        <input type="submit" value="Update Plan">
-    </form>
+        <code>
+            {% for line in initial_plan_lines %}
+                {{ line }}<br>
+            {% endfor %}
+        </code>
+    
 </body>
 </html>
