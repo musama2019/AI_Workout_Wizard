@@ -11,6 +11,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            position: relative; /* Added position relative */
         }
 
         h1 {
@@ -45,6 +46,18 @@
             font-family: Consolas, monospace;
         }
 
+        .download-button {
+            position: absolute; /* Added position absolute */
+            top: 20px; /* Adjusted top position */
+            right: 20px; /* Adjusted right position */
+            background-color: #1e4a7b; /* Changed background color */
+            color: #fff; /* Changed text color */
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
         @media screen and (max-width: 600px) {
             pre {
                 padding: 10px; /* Decreased padding */
@@ -53,6 +66,7 @@
     </style>
 </head>
 <body>
+    <button class="download-button" onclick="downloadWorkoutPlan()">Download Workout Plan</button>
     <h1>Generated Workout Plan</h1>
     <pre>
         <code>
@@ -61,5 +75,20 @@
             {% endfor %}
         </code>
     </pre>
+
+    <script>
+        function downloadWorkoutPlan() {
+            const plan = {{ generated_plan_lines|tojson }};
+            const blob = new Blob([JSON.stringify(plan, null, 2)], { type: 'application/json' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'workout_plan.json';
+            document.body.appendChild(a);
+            a.click();
+            window.URL.revokeObjectURL(url);
+            document.body.removeChild(a);
+        }
+    </script>
 </body>
 </html>
