@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Confirm Workout Plan</title>
+    <title>Generated Workout Plan</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -18,139 +18,30 @@
             color: #343a40;
         }
 
-        form {
-            max-width: 500px;
-            margin: 20px auto;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        label {
-            font-weight: bold;
-            color: #555;
-            display: block;
-            margin-bottom: 5px;
-        }
-
-        input[type="text"] {
-            width: 100%;
-            padding: 8px;
-            margin-bottom: 10px;
-            border: 1px solid #ced4da;
-            border-radius: 4px;
-            box-sizing: border-box;
-            background-color: #fff;
-            color: #495057;
-        }
-
-        input[type="submit"] {
-            background-color: #007bff;
-            color: #fff;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 16px;
-            display: block;
-            width: 100%;
-        }
-
-        input[type="submit"]:hover {
-            background-color: #0056b3;
-        }
-
         pre {
-            background-color: #f1f3f4;
+            background-color: #fff;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             padding: 20px;
             max-width: 600px;
             margin: 20px auto;
             overflow-x: auto;
-            white-space: pre-wrap;
         }
 
         pre code {
             display: block;
             white-space: pre-wrap;
             word-wrap: break-word;
-            font-family: 'Courier New', Courier, monospace;
-        }
-
-        .workout-title {
-            font-size: 20px;
-            font-weight: bold;
-            margin-bottom: 10px;
-            color: #007bff;
-        }
-
-        .workout-day {
-            margin-top: 20px;
-            margin-bottom: 10px;
-            font-size: 18px;
-            font-weight: bold;
-        }
-
-        .workout-section {
-            margin-bottom: 10px;
-        }
-
-        .workout-header {
-            font-weight: bold;
-            margin-bottom: 5px;
-            color: #555;
-        }
-
-        .exercise-item {
-            margin-left: 20px;
-            margin-bottom: 5px;
-        }
-
-        .cool-down {
-            margin-top: 10px;
         }
     </style>
 </head>
 <body>
+    <h1>Generated Workout Plan</h1>
     <pre>
         <code>
-            <span class="workout-title">Workout Plan Title: Muscle Gain</span>
-
-            <span class="workout-day">Day 1:</span>
-            <div class="workout-section">
-                <span class="workout-header">Warm Up (5 minutes):</span>
-                <div class="exercise-item">- Light cardio, such as jogging or cycling</div>
-                <div class="exercise-item">- Dynamic stretches, such as arm circles and leg swings</div>
-            </div>
-            <div class="workout-section">
-                <span class="workout-header">Workout (volume: 5):</span>
-                <div class="exercise-item">- Overhead Press / 3 sets / 8-12 reps / 2 minutes rest / Focus on strict form</div>
-                <div class="exercise-item">- Lateral Raises / 3 sets / 10-15 reps / 1 minute rest / Use a weight that challenges you</div>
-                <div class="exercise-item">- Reverse Fly / 3 sets / 12-15 reps / 1 minute rest / Keep your lower back straight</div>
-                <div class="exercise-item">- Face Pulls / 3 sets / 10-12 reps / 1 minute rest / Emphasize the squeezing motion</div>
-            </div>
-            <div class="workout-section cool-down">
-                <span class="workout-header">Cool Down (5 minutes):</span>
-                <div class="exercise-item">- Static stretches for the shoulders and chest</div>
-            </div>
-
-            <span class="workout-day">Day 2:</span>
-            <div class="workout-section">
-                <span class="workout-header">Warm Up (5 minutes):</span>
-                <div class="exercise-item">- Same as Day 1</div>
-            </div>
-            <div class="workout-section">
-                <span class="workout-header">Workout (volume: 4):</span>
-                <div class="exercise-item">- Incline Dumbbell Press / 3 sets / 10-12 reps / 1 minute rest / Maintain a slight arch in your lower back</div>
-                <div class="exercise-item">- Dumbbell Fly / 3 sets / 15-20 reps / 1 minute rest / Go to a full stretch at the bottom</div>
-                <div class="exercise-item">- Shoulder Press Machine / 3 sets / 10-12 reps / 1 minute rest / Choose a weight that allows you to maintain proper form</div>
-            </div>
-            <div class="workout-section cool-down">
-                <span class="workout-header">Cool Down (5 minutes):</span>
-                <div class="exercise-item">- Same as Day 1</div>
-            </div>
+            {% for line in generated_plan_lines %}
+                {{ line }}<br>
+            {% endfor %}
         </code>
     </pre>
 </body>
