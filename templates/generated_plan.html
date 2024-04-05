@@ -16,22 +16,38 @@
         h1 {
             text-align: center;
             color: #343a40;
+            margin-top: 20px;
+            margin-bottom: 40px;
         }
 
         pre {
-            background-color: #fff;
+            background-color: #f3f4f6;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             padding: 20px;
             max-width: 900px;
-            margin: 20px auto;
+            margin: 0 auto;
             overflow-x: auto;
+            white-space: pre-wrap;
+            font-size: 16px;
+            line-height: 1.6;
         }
 
         pre code {
             display: block;
             white-space: pre-wrap;
             word-wrap: break-word;
+        }
+
+        code {
+            color: #1e4a7b;
+            font-family: Consolas, monospace;
+        }
+
+        @media screen and (max-width: 600px) {
+            pre {
+                padding: 15px;
+            }
         }
     </style>
 </head>
