@@ -4,20 +4,95 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Confirm Workout Plan</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        h1, h2 {
+            text-align: center;
+            color: #343a40;
+        }
+
+        form {
+            max-width: 500px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        pre {
+            background-color: #f1f3f4;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            max-width: 600px;
+            margin: 20px auto;
+            overflow-x: auto;
+        }
+
+        pre code {
+            display: block;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+
+        label {
+            font-weight: bold;
+            color: #555;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+            box-sizing: border-box;
+            background-color: #fff;
+            color: #495057;
+        }
+
+        input[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            display: block;
+            width: 100%;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
     <h1>Confirm Workout Plan</h1>
+    <form action="/confirm" method="post">
+        <label for="is_true">Is the plan true? (True/False):</label>
+        <input type="text" id="is_true" name="is_true" required>
+        <input type="hidden" name="initial_plan" value="{{ '\n'.join(initial_plan_lines) }}">
+        <input type="submit" value="Submit">
+    </form>
     <h2>Initial Workout Plan:</h2>
     <pre>
-        {% for line in initial_plan_lines %}
-            {{ line }}<br>
-        {% endfor %}
+        <code>
+            {% for line in initial_plan_lines %}
+                {{ line }}<br>
+            {% endfor %}
+        </code>
     </pre>
-    <form action="/confirm" method="post">
-        <input type="hidden" name="initial_plan" value="{{ '\n'.join(initial_plan_lines) }}">
-        <label for="is_true">Is the plan true? (True/False):</label><br>
-        <input type="text" id="is_true" name="is_true" required><br>
-        <input type="submit" value="Generate Plan">
-    </form>
 </body>
 </html>
