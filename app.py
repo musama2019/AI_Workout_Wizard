@@ -12,37 +12,57 @@ def generate_workout_plan(workout_name, num_days, volume_per_week, workout_type,
     url = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=' + api_key
 
     data = {
-        "contents": [
-            {
-                "parts": [
-                    {
-                        "text": f"Generate a workout plan strictly following the format based on the following parameters:\n"
-                                f"Workout Name/Title: {workout_name}\n"
-                                f"Number of Days: {num_days}\n"
-                                f"Volume per Week: {volume_per_week}\n"
-                                f"Type of Workout: {workout_type}\n"
-                                f"Include Warm-Up: {include_warmup}\n"
-                                f"Include Cool-Down: {include_cooldown}\n"
-                                f"Workout Location: {workout_location}\n"
-                                f"Weak Body Parts: {weak_body_parts}\n"
-                                f"Client Gender: {client_gender}\n"
-                                f"The format of plan SHOULD be like this:\n"
-                                f"Workout Plan Title\n"
-                                f"    - Day name (menu)\n"
-                                f"        o warm up (section 1)\n"
-                                f"             exercise\n"
-                                f"        o workout (section 2)\n"
-                                f"             exercise / sets / reps / rest period / notes\n"
-                                f"             exercise / sets / reps / rest period / notes\n"
-                                f"             etc\n"
-                                f"        o cool down (section 3)\n"
-                                f"             exercise\n"
-                                f"Please follow the structue and parameter as provided!I dont want any mistake\n"
-                    }
-                ]
-            }
-        ]
-    }
+            "contents": [
+                {
+                    "parts": [
+                        {
+                            "text": f"Generate a workout plan strictly following the format based on the following parameters:\n"
+                                    f"Workout Name/Title: {workout_name}\n"
+                                    f"Number of Days: {num_days}\n"
+                                    f"Volume per Week: {volume_per_week}\n"
+                                    f"Type of Workout: {workout_type}\n"
+                                    f"Include Warm-Up: {include_warmup}\n"
+                                    f"Include Cool-Down: {include_cooldown}\n"
+                                    f"Workout Location: {workout_location}\n"
+                                    f"Weak Body Parts: {weak_body_parts}\n"
+                                    f"Client Gender: {client_gender}\n"
+                                    f"The format of the plan should be like this:\n"
+                                    f"Workout Plan Title\n"
+                                    f"    - Day name (menu)\n"
+                                    f"        o Warm-up (section 1)\n"
+                                    f"            * Exercise 1:\n"
+                                    f"                 - Sets\n"
+                                    f"                   - Reps\n"
+                                    f"                   - Rest period\n"
+                                    f"                   - Notes\n"
+                                    f"            * Exercise 2:\n"
+                                    f"                 - Sets\n"
+                                    f"                   - Reps\n"
+                                    f"                   - Rest period\n"
+                                    f"                   - Notes\n"
+                                    f"        o Workout (section 2)\n"
+                                    f"            * Exercise 1:\n"
+                                    f"                 - Sets\n"
+                                    f"                   - Reps\n"
+                                    f"                   - Rest period\n"
+                                    f"                   - Notes\n"
+                                    f"            * Exercise 2:\n"
+                                    f"                 - Sets\n"
+                                    f"                   - Reps\n"
+                                    f"                   - Rest period\n"
+                                    f"                   - Notes\n"
+                                    f"        o Cool-down (section 3)\n"
+                                    f"            * Exercise 1:\n"
+                                    f"                 - Sets\n"
+                                    f"                   - Reps\n"
+                                    f"                   - Rest period\n"
+                                    f"                   - Notes\n"
+                                    f"Please follow the structure and parameters as provided! I don't want any mistakes\n"
+                        }
+                    ]
+                }
+            ]
+        }
 
     headers = {'Content-Type': 'application/json'}
 
